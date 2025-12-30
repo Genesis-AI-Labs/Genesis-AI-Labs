@@ -472,34 +472,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mt-16 sm:mt-24 md:mt-32 mb-12 sm:mb-16">
-          <div className="flex items-center space-x-2 mb-6 sm:mb-8">
-            <span className="text-xs sm:text-sm text-white">CONTACT INFORMATION</span>
-            <span className="h-px w-8 sm:w-12 bg-white"></span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
-            <div>
-              <h4 className="text-xs sm:text-sm font-medium mb-2 text-white">EMAIL</h4>
-              <p className="text-xs sm:text-sm text-gray-400 break-words">siddhantsaxena@genesisai.in</p>
-              <p className="text-xs sm:text-sm text-gray-400 break-words">office.cxo@genesisai.in</p>
-            </div>
-            <div>
-              <h4 className="text-xs sm:text-sm font-medium mb-2 text-white">PHONE</h4>
-              <p className="text-xs sm:text-sm text-gray-400">(+91) 7024184657</p>
-              <p className="text-xs sm:text-sm text-gray-400">(+91) 7300366428</p>
-            </div>
-            <div className="sm:col-span-2 md:col-span-1">
-              <h4 className="text-xs sm:text-sm font-medium mb-2 text-white">LOCATION</h4>
-              <p className="text-xs sm:text-sm text-gray-400">
-                Lossfunk, 3rd Floor, No. 309
-                <br />
-                100 Feet Rd, 1st Stage, Binnamangala
-                <br />
-                Indiranagar, Bengaluru, Karnataka 560038
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
