@@ -75,35 +75,6 @@ export function RevampedProductsSection() {
 
   return (
     <section ref={sectionRef} className="relative py-8 sm:py-12 overflow-hidden" id="products">
-      {/* Floating Animation Styles */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes float {
-            0%, 100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-          .float-animation {
-            animation: float 4s ease-in-out infinite;
-          }
-          .float-animation-delay-1 {
-            animation-delay: 0s;
-          }
-          .float-animation-delay-2 {
-            animation-delay: 1s;
-          }
-          .float-animation-delay-3 {
-            animation-delay: 2s;
-          }
-          .float-animation-delay-4 {
-            animation-delay: 1.5s;
-          }
-        `
-      }} />
-
       {/* Background */}
       <div 
         className="absolute inset-4 sm:inset-8 overflow-hidden rounded-2xl sm:rounded-3xl"
@@ -146,7 +117,7 @@ export function RevampedProductsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch">
           {/* Top Row - Hypersym and Functor */}
           <div 
-            className={`product-card float-animation float-animation-delay-1 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[0].delay}ms` }}
           >
             <ProductCard
@@ -160,7 +131,7 @@ export function RevampedProductsSection() {
             />
           </div>
           <div 
-            className={`product-card float-animation float-animation-delay-2 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[1].delay}ms` }}
           >
             <ProductCard
@@ -176,7 +147,7 @@ export function RevampedProductsSection() {
 
           {/* Bottom Row - CUA [VENV] and Zero Morphism */}
           <div 
-            className={`product-card float-animation float-animation-delay-3 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[2].delay}ms` }}
           >
             <ProductCard
@@ -190,7 +161,7 @@ export function RevampedProductsSection() {
             />
           </div>
           <div 
-            className={`product-card float-animation float-animation-delay-4 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[3].delay}ms` }}
           >
             <ProductCard
