@@ -6,9 +6,9 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "AI Agents Pro - Transform Your Business with AI",
+  title: "Genesis AI Labs",
   description:
-    "Leading AI consultancy helping enterprises deploy intelligent AI agents for automation, decision-making, and growth.",
+    "World-class AI research lab in Bangalore. Building advanced AI agents and simulations to solve complex problems through geometric deep learning, reinforcement learning, and generative modeling.",
   generator: "v0.app",
   viewport: "width=device-width, initial-scale=1",
 }

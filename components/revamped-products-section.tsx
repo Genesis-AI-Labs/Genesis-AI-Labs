@@ -35,6 +35,8 @@ export function RevampedProductsSection() {
     description: string;
     image: string;
     delay: number;
+    link?: string;
+    comingSoon?: boolean;
     layout?: "default" | "horizontal" | "horizontal-right" | "image-bottom";
   }> = [
     {
@@ -42,6 +44,7 @@ export function RevampedProductsSection() {
       description: "Advanced symbolic AI system for complex reasoning and mathematical problem solving with enhanced interpretability.",
       image: "/HyperSym_x_banner.png",
       delay: 0,
+      link: "https://www.getsimworks.com",
       layout: "default",
     },
     {
@@ -49,6 +52,7 @@ export function RevampedProductsSection() {
       description: "Mathematical framework based on category theory for mapping between structures, enabling powerful abstractions in AI and computational systems.",
       image: "/functor_abstract art.png",
       delay: 100,
+      link: "https://aifunctor.com",
       layout: "horizontal",
     },
     {
@@ -56,6 +60,7 @@ export function RevampedProductsSection() {
       description: "Contextual Understanding Agent in Virtual Environment with spatial reasoning and real-time adaptation capabilities.",
       image: "/cua_venv_abstract_art.png",
       delay: 200,
+      comingSoon: true,
       layout: "horizontal-right",
     },
     {
@@ -63,6 +68,7 @@ export function RevampedProductsSection() {
       description: "Cutting-edge AI framework leveraging category theory and advanced mathematical structures for robust and interpretable AI systems.",
       image: "/ZeroMorphism.png",
       delay: 300,
+      link: "https://www.genesisai.in/zero_morphism/",
       layout: "image-bottom",
     },
   ];
@@ -137,10 +143,10 @@ export function RevampedProductsSection() {
         </div>
 
         {/* Product Cards Grid - Beautiful Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch">
           {/* Top Row - Hypersym and Functor */}
           <div 
-            className={`product-card float-animation float-animation-delay-1 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card float-animation float-animation-delay-1 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[0].delay}ms` }}
           >
             <ProductCard
@@ -148,11 +154,13 @@ export function RevampedProductsSection() {
               description={products[0].description}
               image={products[0].image}
               delay={products[0].delay}
+              link={products[0].link}
+              comingSoon={products[0].comingSoon}
               layout={products[0].layout}
             />
           </div>
           <div 
-            className={`product-card float-animation float-animation-delay-2 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card float-animation float-animation-delay-2 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[1].delay}ms` }}
           >
             <ProductCard
@@ -160,13 +168,15 @@ export function RevampedProductsSection() {
               description={products[1].description}
               image={products[1].image}
               delay={products[1].delay}
+              link={products[1].link}
+              comingSoon={products[1].comingSoon}
               layout={products[1].layout}
             />
           </div>
 
           {/* Bottom Row - CUA [VENV] and Zero Morphism */}
           <div 
-            className={`product-card float-animation float-animation-delay-3 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card float-animation float-animation-delay-3 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[2].delay}ms` }}
           >
             <ProductCard
@@ -174,11 +184,13 @@ export function RevampedProductsSection() {
               description={products[2].description}
               image={products[2].image}
               delay={products[2].delay}
+              link={products[2].link}
+              comingSoon={products[2].comingSoon}
               layout={products[2].layout}
             />
           </div>
           <div 
-            className={`product-card float-animation float-animation-delay-4 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`product-card float-animation float-animation-delay-4 transition-all duration-500 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: `${products[3].delay}ms` }}
           >
             <ProductCard
@@ -186,6 +198,8 @@ export function RevampedProductsSection() {
               description={products[3].description}
               image={products[3].image}
               delay={products[3].delay}
+              link={products[3].link}
+              comingSoon={products[3].comingSoon}
               layout={products[3].layout}
             />
           </div>
