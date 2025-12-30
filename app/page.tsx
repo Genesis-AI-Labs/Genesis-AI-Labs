@@ -51,17 +51,27 @@ export default function HomePage() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    canvas.width = 700
-    canvas.height = 700
+    const updateCanvasSize = () => {
+      const isMobile = window.innerWidth < 768
+      canvas.width = isMobile ? 400 : 700
+      canvas.height = isMobile ? 400 : 700
+    }
+
+    updateCanvasSize()
+    window.addEventListener('resize', updateCanvasSize)
 
     let animationTime = 0
     const pixelSize = 10
-    const centerX = canvas.width * 0.5
-    const centerY = canvas.height * 0.5
-    const radius = 320
+    const getCenterX = () => canvas.width * 0.5
+    const getCenterY = () => canvas.height * 0.5
+    const getRadius = () => Math.min(canvas.width, canvas.height) * 0.45
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      const centerX = getCenterX()
+      const centerY = getCenterY()
+      const radius = getRadius()
 
       const cycleTime = animationTime * 0.004
       const progress = (Math.sin(cycleTime) + 1) / 2
@@ -152,6 +162,7 @@ export default function HomePage() {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
+      window.removeEventListener('resize', updateCanvasSize)
     }
   }, [])
 
@@ -175,14 +186,14 @@ export default function HomePage() {
         }}
       />
 
-      <header className="flex items-center justify-between p-6 relative z-10">
+      <header className="flex items-center justify-between p-4 sm:p-6 relative z-10">
         <div className="flex space-x-2">
           <div className="h-2 w-2 rounded-full bg-white"></div>
           <div className="h-2 w-2 rounded-full bg-white"></div>
         </div>
-        <div className="flex items-center space-x-6">
-          <button className="text-sm text-white">EN</button>
-          <Link href="/contact" className="text-sm text-white hover:underline">
+        <div className="flex items-center space-x-3 sm:space-x-6">
+          <button className="text-xs sm:text-sm text-white hidden sm:block">EN</button>
+          <Link href="/contact" className="text-xs sm:text-sm text-white hover:underline hidden sm:block">
             CONTACT US
           </Link>
           <button className="flex flex-col space-y-1 z-50 relative" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -197,23 +208,23 @@ export default function HomePage() {
         </div>
 
         <div
-          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+          className={`fixed top-0 right-0 h-full w-full sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
           style={{ zIndex: 99999 }}
           onMouseEnter={() => setIsMenuHovered(true)}
           onMouseLeave={() => setIsMenuHovered(false)}
         >
-          <div className="p-8 pt-8">
+          <div className="p-6 sm:p-8 pt-8">
             {/* Close button */}
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
             
-            <nav className="space-y-6 mt-8">
+            <nav className="space-y-4 sm:space-y-6 mt-8">
               <button
                 onClick={() => scrollToSection("home")}
                 className="block text-lg font-light hover:text-gray-600 transition-colors text-left w-full"
@@ -266,12 +277,12 @@ export default function HomePage() {
         )}
       </header>
 
-      <main className="relative px-6 pt-12">
-        <section className="relative min-h-[85vh] max-w-7xl mx-auto px-16 overflow-hidden" id="home">
+      <main className="relative px-4 sm:px-6 pt-8 sm:pt-12">
+        <section className="relative min-h-[85vh] max-w-7xl mx-auto px-4 sm:px-8 md:px-16 overflow-hidden" id="home">
           <HeroBackground />
-          <div className="flex items-center min-h-[85vh] pl-16">
-            <div className="max-w-2xl relative" style={{ zIndex: 1 }}>
-              <h1 className="text-6xl md:text-7xl font-bold leading-tight tracking-tighter relative mb-16" style={{
+          <div className="flex items-center min-h-[85vh] pl-0 sm:pl-8 md:pl-16">
+            <div className="max-w-2xl relative w-full" style={{ zIndex: 1 }}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tighter relative mb-8 sm:mb-12 md:mb-16" style={{
                 fontFamily: "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 background: "linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%)",
                 WebkitBackgroundClip: "text",
@@ -286,10 +297,10 @@ export default function HomePage() {
                 <span className="inline-block hover:scale-105 transition-transform duration-300 delay-200">BANGALORE.</span>
               </h1>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <Button
                   variant="outline"
-                  className="rounded-full border-2 border-white px-8 bg-white/20 backdrop-blur-sm text-white relative overflow-hidden group hover:bg-white hover:text-gray-900 hover:border-white transition-all duration-300 shadow-lg"
+                  className="rounded-full border-2 border-white px-6 sm:px-8 bg-white/20 backdrop-blur-sm text-white relative overflow-hidden group hover:bg-white hover:text-gray-900 hover:border-white transition-all duration-300 shadow-lg text-sm sm:text-base"
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
@@ -302,7 +313,7 @@ export default function HomePage() {
                     ></div>
                   </span>
                 </Button>
-                <p className="text-sm leading-relaxed text-white max-w-md font-bold">
+                <p className="text-xs sm:text-sm leading-relaxed text-white max-w-md font-bold">
                   ALIGNING TOWARDS SUPERINTELLIGENCE
                   <br />
                   BUILDING WORLD-CLASS AI RESEARCH LAB.
@@ -310,19 +321,19 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="absolute top-8 right-8 max-w-sm" style={{ zIndex: 1 }}>
+          <div className="absolute top-4 right-4 sm:top-8 sm:right-8 max-w-xs sm:max-w-sm hidden md:block" style={{ zIndex: 1 }}>
             <div className="flex items-center space-x-2 mb-4 group">
-              <span className="text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHAT WE DO</span>
-              <span className="h-px w-12 bg-white group-hover:w-16 transition-all duration-300"></span>
+              <span className="text-xs sm:text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHAT WE DO</span>
+              <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
             </div>
             <p className="text-xs leading-relaxed text-white">
               We are building advanced AI agents and simulations to solve complex problems. Our research focuses on geometric deep learning, reinforcement learning, and generative modeling to push the boundaries of artificial intelligence.
             </p>
           </div>
-          <div className="absolute bottom-8 right-8 max-w-sm" style={{ zIndex: 1 }}>
+          <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 max-w-xs sm:max-w-sm hidden md:block" style={{ zIndex: 1 }}>
             <div className="flex items-center space-x-2 mb-4 group">
-              <span className="text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHO WE ARE</span>
-              <span className="h-px w-12 bg-white group-hover:w-16 transition-all duration-300"></span>
+              <span className="text-xs sm:text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHO WE ARE</span>
+              <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
             </div>
             <p className="text-xs leading-relaxed text-white">
               We are establishing a world-class AI research lab in Bangalore. Our mission is to create cutting-edge AI
@@ -344,55 +355,55 @@ export default function HomePage() {
           </p>
         </div> */}
 
-        <section className="mt-32" id="research">
-          <div className="flex items-center space-x-2 mb-8 group">
-            <span className="text-sm text-white group-hover:tracking-wider transition-all duration-300">RESEARCH PODS</span>
-            <span className="h-px w-12 bg-white group-hover:w-16 transition-all duration-300"></span>
+        <section className="mt-16 sm:mt-24 md:mt-32" id="research">
+          <div className="flex items-center space-x-2 mb-6 sm:mb-8 group">
+            <span className="text-xs sm:text-sm text-white group-hover:tracking-wider transition-all duration-300">RESEARCH PODS</span>
+            <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
           </div>
-          <h2 className="text-3xl font-light mb-8 max-w-2xl text-white">CURRENT RESEARCH ORIENTATIONS</h2>
-          <p className="max-w-2xl text-sm leading-relaxed text-gray-400 mb-16">
+          <h2 className="text-2xl sm:text-3xl font-light mb-6 sm:mb-8 max-w-2xl text-white">CURRENT RESEARCH ORIENTATIONS</h2>
+          <p className="max-w-2xl text-xs sm:text-sm leading-relaxed text-gray-400 mb-8 sm:mb-12 md:mb-16">
             Our research is organized into specialized pods, each focusing on cutting-edge areas of AI development. We
             provide collaborative environments, computational resources, and discussion forums for researchers to grow
             through knowledge sharing and creative exploration.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="space-y-4 p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
-              <h3 className="text-lg font-light text-white group-hover:text-black transition-colors">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
+              <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
                 GEOMETRIC DEEP LEARNING POD
               </h3>
-              <ul className="text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-2">
+              <ul className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-1 sm:space-y-2">
                 <li>• Natural Science Applications</li>
                 <li>• Graph Deep Learning Core</li>
                 <li>• Information Diffusion</li>
               </ul>
-              <p className="text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
                 Exploring the intersection of geometry and deep learning to solve complex problems in natural sciences
                 and information systems.
               </p>
             </div>
 
-            <div className="space-y-4 p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
-              <h3 className="text-lg font-light text-white group-hover:text-black transition-colors">DEEP LEARNING POD</h3>
-              <ul className="text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-2">
+            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
+              <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">DEEP LEARNING POD</h3>
+              <ul className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-1 sm:space-y-2">
                 <li>• Video Analysis</li>
                 <li>• Physics-based Deep Learning</li>
                 <li>• Generative Modeling (Diffusers)</li>
               </ul>
-              <p className="text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
                 Advancing deep learning techniques with focus on video understanding, physics-informed models, and
                 state-of-the-art generative systems.
               </p>
             </div>
 
-            <div className="space-y-4 p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
-              <h3 className="text-lg font-light text-white group-hover:text-black transition-colors">AI AGENTS POD</h3>
-              <ul className="text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-2">
+            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
+              <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">AI AGENTS POD</h3>
+              <ul className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-1 sm:space-y-2">
                 <li>• Reinforcement Learning</li>
                 <li>• Optimizations</li>
                 <li>• Environment-aware RL Agents</li>
               </ul>
-              <p className="text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
                 Developing intelligent agents that can adapt to their environment and make optimal decisions through
                 advanced reinforcement learning techniques.
               </p>
@@ -400,31 +411,31 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="mt-24"></div>
+        <div className="mt-12 sm:mt-16 md:mt-24"></div>
 
         {/* Products Section - Revamped with Cards */}
         <RevampedProductsSection />
 
 
-        <section className="mt-32">
-          <div className="flex items-center space-x-2 mb-8">
-            <span className="text-sm text-white">OUR VISION</span>
-            <span className="h-px w-12 bg-white"></span>
+        <section className="mt-16 sm:mt-24 md:mt-32">
+          <div className="flex items-center space-x-2 mb-6 sm:mb-8">
+            <span className="text-xs sm:text-sm text-white">OUR VISION</span>
+            <span className="h-px w-8 sm:w-12 bg-white"></span>
           </div>
-          <h2 className="text-3xl font-light mb-8 text-white">BUILDING THE FUTURE OF AI</h2>
+          <h2 className="text-2xl sm:text-3xl font-light mb-6 sm:mb-8 text-white">BUILDING THE FUTURE OF AI</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
             <div>
-              <h3 className="text-lg font-light mb-4 text-white">RESEARCHER-CENTRIC APPROACH</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <h3 className="text-base sm:text-lg font-light mb-3 sm:mb-4 text-white">RESEARCHER-CENTRIC APPROACH</h3>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                 We value the contributions of our researchers, providing authorship recognition, travel grants, and
                 publication support for candidates from diverse backgrounds. Our strong alumni community focuses on
                 building lasting professional and personal bonds.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-light mb-4 text-white">COLLABORATIVE ENVIRONMENT</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <h3 className="text-base sm:text-lg font-light mb-3 sm:mb-4 text-white">COLLABORATIVE ENVIRONMENT</h3>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                 We foster a collaborative research environment with computational resources, discussion pods, and
                 knowledge-sharing platforms. Our approach combines creative thinking, coding, and experimentation with
                 proper guidance and direction.
@@ -433,53 +444,53 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mt-32 relative">
+        <section className="mt-16 sm:mt-24 md:mt-32 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent h-px"></div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 py-12 sm:py-16">
             <div className="text-center group">
-              <div className="text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
+              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
                 15+
               </div>
-              <div className="text-sm text-gray-400">Research Papers</div>
+              <div className="text-xs sm:text-sm text-gray-400">Research Papers</div>
             </div>
             <div className="text-center group">
-              <div className="text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">3</div>
-              <div className="text-sm text-gray-400">Research Pods</div>
+              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">3</div>
+              <div className="text-xs sm:text-sm text-gray-400">Research Pods</div>
             </div>
             <div className="text-center group">
-              <div className="text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
+              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
                 50+
               </div>
-              <div className="text-sm text-gray-400">Researchers</div>
+              <div className="text-xs sm:text-sm text-gray-400">Researchers</div>
             </div>
             <div className="text-center group">
-              <div className="text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
+              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
                 2022
               </div>
-              <div className="text-sm text-gray-400">Established</div>
+              <div className="text-xs sm:text-sm text-gray-400">Established</div>
             </div>
           </div>
         </section>
 
-        <section className="mt-32 mb-16">
-          <div className="flex items-center space-x-2 mb-8">
-            <span className="text-sm text-white">CONTACT INFORMATION</span>
-            <span className="h-px w-12 bg-white"></span>
+        <section className="mt-16 sm:mt-24 md:mt-32 mb-12 sm:mb-16">
+          <div className="flex items-center space-x-2 mb-6 sm:mb-8">
+            <span className="text-xs sm:text-sm text-white">CONTACT INFORMATION</span>
+            <span className="h-px w-8 sm:w-12 bg-white"></span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
             <div>
-              <h4 className="text-sm font-medium mb-2 text-white">EMAIL</h4>
-              <p className="text-sm text-gray-400">siddhantsaxena@genesisai.in</p>
-              <p className="text-sm text-gray-400">office.cxo@genesisai.in</p>
+              <h4 className="text-xs sm:text-sm font-medium mb-2 text-white">EMAIL</h4>
+              <p className="text-xs sm:text-sm text-gray-400 break-words">siddhantsaxena@genesisai.in</p>
+              <p className="text-xs sm:text-sm text-gray-400 break-words">office.cxo@genesisai.in</p>
             </div>
             <div>
-              <h4 className="text-sm font-medium mb-2 text-white">PHONE</h4>
-              <p className="text-sm text-gray-400">(+91) 7024184657</p>
-              <p className="text-sm text-gray-400">(+91) 7300366428</p>
+              <h4 className="text-xs sm:text-sm font-medium mb-2 text-white">PHONE</h4>
+              <p className="text-xs sm:text-sm text-gray-400">(+91) 7024184657</p>
+              <p className="text-xs sm:text-sm text-gray-400">(+91) 7300366428</p>
             </div>
-            <div>
-              <h4 className="text-sm font-medium mb-2 text-white">LOCATION</h4>
-              <p className="text-sm text-gray-400">
+            <div className="sm:col-span-2 md:col-span-1">
+              <h4 className="text-xs sm:text-sm font-medium mb-2 text-white">LOCATION</h4>
+              <p className="text-xs sm:text-sm text-gray-400">
                 Lossfunk, 3rd Floor, No. 309
                 <br />
                 100 Feet Rd, 1st Stage, Binnamangala

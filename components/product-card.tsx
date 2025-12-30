@@ -29,13 +29,13 @@ export function ProductCard({
     return (
       <div 
         className={cn(
-          "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
+          "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-4 sm:p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
           className
         )}
         style={{ transitionDelay: `${delay}ms` }}
       >
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="md:w-2/5 h-48 rounded-xl overflow-hidden bg-gray-100 relative shadow-lg">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
+          <div className="md:w-2/5 h-40 sm:h-48 rounded-xl overflow-hidden bg-gray-100 relative shadow-lg">
             <Image 
               src={image} 
               alt={title}
@@ -44,12 +44,12 @@ export function ProductCard({
             />
           </div>
           <div className="md:w-3/5 flex flex-col justify-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">{description}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{title}</h3>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">{description}</p>
             {link && (
               <a 
                 href={link} 
-                className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center mt-auto"
+                className="text-xs sm:text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center mt-auto"
               >
                 Learn more <span className="ml-2">&rarr;</span>
               </a>
@@ -64,13 +64,13 @@ export function ProductCard({
     return (
       <div 
         className={cn(
-          "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
+          "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-4 sm:p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
           className
         )}
         style={{ transitionDelay: `${delay}ms` }}
       >
-        <div className="flex flex-col md:flex-row-reverse gap-6">
-          <div className="md:w-2/5 h-48 rounded-xl overflow-hidden bg-gray-100 relative shadow-lg">
+        <div className="flex flex-col md:flex-row-reverse gap-4 sm:gap-6">
+          <div className="md:w-2/5 h-40 sm:h-48 rounded-xl overflow-hidden bg-gray-100 relative shadow-lg">
             <Image 
               src={image} 
               alt={title}
@@ -79,12 +79,12 @@ export function ProductCard({
             />
           </div>
           <div className="md:w-3/5 flex flex-col justify-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">{description}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{title}</h3>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">{description}</p>
             {link && (
               <a 
                 href={link} 
-                className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center mt-auto"
+                className="text-xs sm:text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center mt-auto"
               >
                 Learn more <span className="ml-2">&rarr;</span>
               </a>
@@ -99,25 +99,25 @@ export function ProductCard({
     return (
       <div 
         className={cn(
-          "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
+          "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-4 sm:p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
           className
         )}
         style={{ transitionDelay: `${delay}ms` }}
       >
         <div className="flex flex-col h-full">
           <div className="mb-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">{description}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{title}</h3>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">{description}</p>
             {link && (
               <a 
                 href={link} 
-                className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center"
+                className="text-xs sm:text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center"
               >
                 Learn more <span className="ml-2">&rarr;</span>
               </a>
             )}
           </div>
-          <div className="mt-auto rounded-xl overflow-hidden h-40 bg-gray-100 relative shadow-lg">
+          <div className="mt-auto rounded-xl overflow-hidden h-32 sm:h-40 bg-gray-100 relative shadow-lg">
             <Image 
               src={image} 
               alt={title}
@@ -133,13 +133,13 @@ export function ProductCard({
   return (
     <div 
       className={cn(
-        "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
+        "bg-white/80 backdrop-blur-md hover:bg-white/90 rounded-2xl p-4 sm:p-6 shadow-xl border border-white/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 opacity-100 translate-y-0",
         className
       )}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {image && (
-        <div className="mb-4 rounded-xl overflow-hidden h-40 bg-gray-100 relative shadow-lg">
+        <div className="mb-4 rounded-xl overflow-hidden h-32 sm:h-40 bg-gray-100 relative shadow-lg">
           <Image 
             src={image} 
             alt={title}
@@ -150,18 +150,18 @@ export function ProductCard({
       )}
       
       {icon && (
-        <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-100 text-indigo-600">
+        <div className="mb-4 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-indigo-100 text-indigo-600">
           {icon}
         </div>
       )}
       
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-700 mb-4 leading-relaxed">{description}</p>
+      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{title}</h3>
+      <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">{description}</p>
       
       {link && (
         <a 
           href={link} 
-          className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center"
+          className="text-xs sm:text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center"
         >
           Learn more <span className="ml-2">&rarr;</span>
         </a>

@@ -68,7 +68,7 @@ export function RevampedProductsSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-12 overflow-hidden" id="products">
+    <section ref={sectionRef} className="relative py-8 sm:py-12 overflow-hidden" id="products">
       {/* Floating Animation Styles */}
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -100,7 +100,7 @@ export function RevampedProductsSection() {
 
       {/* Background */}
       <div 
-        className="absolute inset-8 overflow-hidden rounded-3xl"
+        className="absolute inset-4 sm:inset-8 overflow-hidden rounded-2xl sm:rounded-3xl"
         style={{
           backgroundImage: "url('/products_section_background.png')",
           backgroundSize: "cover",
@@ -119,25 +119,25 @@ export function RevampedProductsSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center space-x-2 mb-3 group">
-            <span className="text-sm text-gray-900 font-medium group-hover:tracking-wider transition-all duration-300">
+            <span className="text-xs sm:text-sm text-gray-900 font-medium group-hover:tracking-wider transition-all duration-300">
               PRODUCTS
             </span>
-            <span className="h-px w-12 bg-gray-900 group-hover:w-16 transition-all duration-300"></span>
+            <span className="h-px w-8 sm:w-12 bg-gray-900 group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-3 text-gray-900">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight mb-3 text-gray-900">
             Our AI Solutions
           </h2>
-          <p className="max-w-xl mx-auto text-sm text-gray-700">
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-gray-700 px-4">
             Cutting-edge AI products designed to tackle complex challenges and push the boundaries of artificial intelligence.
           </p>
         </div>
 
         {/* Product Cards Grid - Beautiful Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {/* Top Row - Hypersym and Functor */}
           <div 
             className={`product-card float-animation float-animation-delay-1 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
