@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/Genesis-AI-Labs',
+  // basePath removed for custom domain - site is served at root
   trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: true,
