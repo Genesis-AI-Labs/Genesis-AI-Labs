@@ -329,24 +329,28 @@ export default function HomePage() {
             </div>
           </div>
           <div className="absolute top-4 right-4 sm:top-8 sm:right-8 max-w-xs sm:max-w-sm hidden md:block" style={{ zIndex: 1 }}>
-            <div className="flex items-center space-x-2 mb-4 group">
-              <span className="text-xs sm:text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHAT WE DO</span>
-              <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 shadow-xl">
+              <div className="flex items-center space-x-2 mb-4 group">
+                <span className="text-xs sm:text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHAT WE DO</span>
+                <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
+              </div>
+              <p className="text-xs sm:text-sm leading-relaxed text-white/95">
+                We are building advanced AI agents and simulations to solve complex problems. Our research focuses on geometric deep learning, reinforcement learning, and generative modeling to push the boundaries of artificial intelligence.
+              </p>
             </div>
-            <p className="text-xs leading-relaxed text-white">
-              We are building advanced AI agents and simulations to solve complex problems. Our research focuses on geometric deep learning, reinforcement learning, and generative modeling to push the boundaries of artificial intelligence.
-            </p>
           </div>
           <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 max-w-xs sm:max-w-sm hidden md:block" style={{ zIndex: 1 }}>
-            <div className="flex items-center space-x-2 mb-4 group">
-              <span className="text-xs sm:text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHO WE ARE</span>
-              <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 shadow-xl">
+              <div className="flex items-center space-x-2 mb-4 group">
+                <span className="text-xs sm:text-sm text-white font-bold group-hover:tracking-wider transition-all duration-300">WHO WE ARE</span>
+                <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
+              </div>
+              <p className="text-xs sm:text-sm leading-relaxed text-white/95">
+                We are establishing a world-class AI research lab in Bangalore. Our mission is to create cutting-edge AI
+                solutions tailored to India's unique needs while making AI accessible to all. We focus on developing AI
+                solutions for India's needs and democratizing AI across the nation.
+              </p>
             </div>
-            <p className="text-xs leading-relaxed text-white">
-              We are establishing a world-class AI research lab in Bangalore. Our mission is to create cutting-edge AI
-              solutions tailored to India's unique needs while making AI accessible to all. We focus on developing AI
-              solutions for India's needs and democratizing AI across the nation.
-            </p>
           </div>
         </section>
         
