@@ -106,7 +106,7 @@ export function RevampedProductsSection() {
             <span className="h-px w-8 sm:w-12 bg-gray-900 group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight mb-3 text-gray-900">
-            Our AI Solutions
+            Agentic Systems connecting all Businesses
           </h2>
           <p className="max-w-xl mx-auto text-xs sm:text-sm text-gray-700 px-4">
             Cutting-edge AI products designed to tackle complex challenges and push the boundaries of artificial intelligence.

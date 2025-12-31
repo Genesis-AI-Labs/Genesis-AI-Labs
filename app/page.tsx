@@ -294,25 +294,32 @@ export default function HomePage() {
                 <br />
                 <span className="inline-block hover:scale-105 transition-transform duration-300 delay-100">AI LABS</span>
                 <br />
-                <span className="inline-block hover:scale-105 transition-transform duration-300 delay-200">BANGALORE.</span>
+                <span className="inline-block hover:scale-105 transition-transform duration-300 delay-200">e/acc.</span>
               </h1>
 
               <div className="space-y-4 sm:space-y-6">
-                <Button
-                  variant="outline"
-                  className="rounded-full border-2 border-white px-6 sm:px-8 bg-white/20 backdrop-blur-sm text-white relative overflow-hidden group hover:bg-white hover:text-gray-900 hover:border-white transition-all duration-300 shadow-lg text-sm sm:text-base"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
+                <a
+                  href="https://calendar.app.google/z9S8nPy1DW6XgX18A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
                 >
-                  <span className="relative z-10 font-bold">
-                    JOIN OUR RESEARCH
-                    <div className="absolute -left-4 -right-4 -top-4 -bottom-4 animate-spin-slow rounded-full border border-white opacity-50 group-hover:border-gray-900"></div>
-                    <div
-                      className="absolute -left-6 -right-6 -top-6 -bottom-6 animate-spin-slow rounded-full border border-white/30 opacity-30 group-hover:border-gray-900/30"
-                      style={{ animationDirection: "reverse", animationDuration: "8s" }}
-                    ></div>
-                  </span>
-                </Button>
+                  <Button
+                    variant="outline"
+                    className="rounded-full border-2 border-white px-6 sm:px-8 bg-white/20 backdrop-blur-sm text-white relative overflow-hidden group hover:bg-white hover:text-gray-900 hover:border-white transition-all duration-300 shadow-lg text-sm sm:text-base"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                  >
+                    <span className="relative z-10 font-bold">
+                      Talk to the Founder!
+                      <div className="absolute -left-4 -right-4 -top-4 -bottom-4 animate-spin-slow rounded-full border border-white opacity-50 group-hover:border-gray-900"></div>
+                      <div
+                        className="absolute -left-6 -right-6 -top-6 -bottom-6 animate-spin-slow rounded-full border border-white/30 opacity-30 group-hover:border-gray-900/30"
+                        style={{ animationDirection: "reverse", animationDuration: "8s" }}
+                      ></div>
+                    </span>
+                  </Button>
+                </a>
                 <p className="text-xs sm:text-sm leading-relaxed text-white max-w-md font-bold">
                   ALIGNING TOWARDS SUPERINTELLIGENCE
                   <br />

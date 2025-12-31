@@ -48,14 +48,20 @@ export function ProductCard({
           <div className="md:w-3/5 flex flex-col justify-center text-left">
             <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{title}</h3>
             <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">{description}</p>
-            {link && (
+            {comingSoon ? (
+              <span className="text-xs sm:text-sm text-gray-500 font-medium flex items-center mt-auto">
+                Coming Soon
+              </span>
+            ) : link ? (
               <a 
                 href={link} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs sm:text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center mt-auto"
               >
                 Learn more <span className="ml-2">&rarr;</span>
               </a>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
