@@ -367,62 +367,76 @@ export default function HomePage() {
         </div> */}
 
         <section className="mt-16 sm:mt-24 md:mt-32" id="research">
-          <div className="flex items-center space-x-2 mb-6 sm:mb-8 group">
-            <span className="text-xs sm:text-sm text-white group-hover:tracking-wider transition-all duration-300">RESEARCH PODS</span>
-            <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-light mb-6 sm:mb-8 max-w-2xl text-white">CURRENT RESEARCH ORIENTATIONS</h2>
-          <p className="max-w-2xl text-xs sm:text-sm leading-relaxed text-gray-400 mb-8 sm:mb-12 md:mb-16">
-            Our research is organized into specialized pods, each focusing on cutting-edge areas of AI development. We
-            provide collaborative environments, computational resources, and discussion forums for researchers to grow
-            through knowledge sharing and creative exploration.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
-            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
-              <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
-                GEOMETRIC DEEP LEARNING POD
-              </h3>
-              <ul className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-1 sm:space-y-2">
-                <li>• Natural Science Applications</li>
-                <li>• Graph Deep Learning Core</li>
-                <li>• Information Diffusion</li>
-              </ul>
-              <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
-                Exploring the intersection of geometry and deep learning to solve complex problems in natural sciences
-                and information systems.
-              </p>
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16">
+            {/* Left Side: Header, Subheader, Strategic Summary, and Image */}
+            <div className="lg:w-1/2 space-y-6 sm:space-y-8">
+              <div className="flex items-center space-x-2 mb-6 sm:mb-8 group">
+                <span className="text-xs sm:text-sm text-white group-hover:tracking-wider transition-all duration-300">RESEARCH PODS</span>
+                <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6 sm:mb-8 text-white">CURRENT RESEARCH ORIENTATIONS</h2>
+              
+              {/* Image with Text Overlay */}
+              <div className="relative ml-6 sm:ml-10">
+                <img 
+                  src="/research_pods_image.png" 
+                  alt="Research Pods" 
+                  className="w-full max-w-lg max-h-[40rem] object-contain"
+                />
+                <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-b from-black/80 via-black/60 to-transparent">
+                  <p className="text-xs sm:text-sm leading-relaxed text-white">
+                    Our research has transitioned from general capability acquisition to capability control. We no longer focus on 'training bigger models,' but on the sophisticated integration of inference-time compute, non-Transformer backbones, and embodied physical manifestation.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
-              <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">DEEP LEARNING POD</h3>
-              <ul className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-1 sm:space-y-2">
-                <li>• Video Analysis</li>
-                <li>• Physics-based Deep Learning</li>
-                <li>• Generative Modeling (Diffusers)</li>
-              </ul>
-              <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
-                Advancing deep learning techniques with focus on video understanding, physics-informed models, and
-                state-of-the-art generative systems.
-              </p>
-            </div>
+            {/* Right Side: Cards Stacked Vertically */}
+            <div className="lg:w-1/2 space-y-6 sm:space-y-8">
+              {/* System 2 Reasoning Pod */}
+              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
+                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
+                  SYSTEM 2 REASONING
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
+                  Focus: Shifting from rapid pattern matching (System 1) to deliberate, verifiable, and iterative reasoning processes (System 2).
+                </p>
+              </div>
 
-            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20">
-              <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">AI AGENTS POD</h3>
-              <ul className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors space-y-1 sm:space-y-2">
-                <li>• Reinforcement Learning</li>
-                <li>• Optimizations</li>
-                <li>• Environment-aware RL Agents</li>
-              </ul>
-              <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-700 transition-colors leading-relaxed">
-                Developing intelligent agents that can adapt to their environment and make optimal decisions through
-                advanced reinforcement learning techniques.
-              </p>
+              {/* Next-Gen Architectures Pod */}
+              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
+                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
+                  NEXT-GEN ARCHITECTURES
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
+                  Focus: Moving beyond the "Transformer Monoculture" toward linear-time inference and extreme hardware efficiency.
+                </p>
+              </div>
+
+              {/* Embodied Intelligence (VLA) Pod */}
+              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
+                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
+                  EMBODIED INTELLIGENCE (VLA)
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
+                  Focus: Bridging the "Sim-to-Real" gap by developing Vision-Language-Action models for general-purpose robotics.
+                </p>
+              </div>
+
+              {/* Agentic Safety & Privacy Pod */}
+              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
+                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
+                  AGENTIC SAFETY & PRIVACY
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
+                  Focus: Addressing the "Agentic Shift" by securing autonomous systems against sabotage and preserving data privacy in decentralized networks.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        <div className="mt-12 sm:mt-16 md:mt-24"></div>
+        <div className="mt-4 sm:mt-6 md:mt-10"></div>
 
         {/* Products Section - Revamped with Cards */}
         <RevampedProductsSection />
@@ -465,7 +479,7 @@ export default function HomePage() {
               <div className="text-xs sm:text-sm text-gray-400">Research Papers</div>
             </div>
             <div className="text-center group">
-              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">3</div>
+              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">4</div>
               <div className="text-xs sm:text-sm text-gray-400">Research Pods</div>
             </div>
             <div className="text-center group">
