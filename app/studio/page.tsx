@@ -1,14 +1,16 @@
 "use client"
 
 import { Footer } from "@/components/footer"
-import { StudioHeader } from "@/components/studio/studio-header"
-import { StudioHero } from "@/components/studio/studio-hero"
-import { ServicesSection } from "@/components/studio/services-section"
-import { ProcessSection } from "@/components/studio/process-section"
-import { ResearchSection } from "@/components/studio/research-section"
-import { CaseStudiesSection } from "@/components/studio/case-studies-section"
-import { FAQSection } from "@/components/studio/faq-section"
-import { StudioCTA } from "@/components/studio/studio-cta"
+import {
+  StudioHeader,
+  StudioHero,
+  ServicesSection,
+  ProcessSection,
+  ResearchSection,
+  CaseStudiesSection,
+  FAQSection,
+  StudioCTA,
+} from "@/components/studio"
 
 export default function StudioPage() {
   return (
