@@ -7,6 +7,7 @@ import { ProcessSection } from "@/components/studio/process-section"
 import { ResearchSection } from "@/components/studio/research-section"
 import { CaseStudiesSection } from "@/components/studio/case-studies-section"
 import { FAQSection } from "@/components/studio/faq-section"
+import { StudioCTA } from "@/components/studio/studio-cta"
 
 export default function StudioPage() {
   return (
@@ -18,6 +19,7 @@ export default function StudioPage() {
         <ResearchSection />
         <CaseStudiesSection />
         <FAQSection />
+        <StudioCTA />
       </main>
       <Footer />
     </div>
