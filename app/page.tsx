@@ -258,6 +258,9 @@ export default function HomePage() {
               <Link href="/blog" className="block text-lg font-light hover:text-gray-600 transition-colors">
                 BLOG
               </Link>
+              <Link href="/studio" className="block text-lg font-light hover:text-gray-600 transition-colors">
+                STUDIO
+              </Link>
               <Link href="/zero_morphism" className="block text-lg font-light hover:text-gray-600 transition-colors">
                 ZERO_MORPHISM
               </Link>
