@@ -56,22 +56,28 @@ export function ServicesSection() {
           {/* Right column - services list */}
           <div className="space-y-0">
             {services.map((service, index) => (
-              <motion.div
+              <div
                 key={service.title}
-                className="border-b border-gray-800 cursor-pointer"
-                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                className="border-b border-gray-800"
               >
-                <div className="py-6 flex items-center justify-between group">
+                <button
+                  type="button"
+                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                  aria-expanded={expandedIndex === index}
+                  aria-controls={`service-content-${index}`}
+                  className="w-full text-left py-6 flex items-center justify-between group"
+                >
                   <span className="text-lg sm:text-xl text-white font-light group-hover:text-gray-300 transition-colors">
                     {service.title}
                   </span>
-                  <span className="text-2xl text-gray-500 group-hover:text-white transition-colors">
+                  <span aria-hidden="true" className="text-2xl text-gray-500 group-hover:text-white transition-colors">
                     →
                   </span>
-                </div>
+                </button>
                 <AnimatePresence>
                   {expandedIndex === index && (
                     <motion.div
+                      id={`service-content-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -84,7 +90,7 @@ export function ServicesSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
