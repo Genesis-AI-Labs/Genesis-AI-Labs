@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function StudioHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const animationFrameRef = useRef<number>()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -69,13 +70,15 @@ export function StudioHero() {
         })
       })
 
-      requestAnimationFrame(animate)
+      animationFrameRef.current = requestAnimationFrame(animate)
     }
 
-    const animationId = requestAnimationFrame(animate)
+    animationFrameRef.current = requestAnimationFrame(animate)
 
     return () => {
-      cancelAnimationFrame(animationId)
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
       window.removeEventListener("resize", updateCanvasSize)
     }
   }, [])
@@ -87,6 +90,8 @@ export function StudioHero() {
         ref={canvasRef}
         className="absolute inset-0 z-0"
         style={{ opacity: 0.6 }}
+        aria-hidden="true"
+        role="presentation"
       />
 
       {/* Content */}
@@ -114,18 +119,19 @@ export function StudioHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <a
-            href="https://calendar.app.google/z9S8nPy1DW6XgX18A"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            variant="outline"
+            className="rounded-full border-2 border-white px-8 py-6 bg-transparent text-white text-lg font-light hover:bg-white hover:text-gray-900 transition-all duration-300"
+            asChild
           >
-            <Button
-              variant="outline"
-              className="rounded-full border-2 border-white px-8 py-6 bg-transparent text-white text-lg font-light hover:bg-white hover:text-gray-900 transition-all duration-300"
+            <a
+              href="https://calendar.app.google/z9S8nPy1DW6XgX18A"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Work With Us
-            </Button>
-          </a>
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>
