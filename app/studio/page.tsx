@@ -3,6 +3,7 @@
 import { Footer } from "@/components/footer"
 import { StudioHero } from "@/components/studio/studio-hero"
 import { ServicesSection } from "@/components/studio/services-section"
+import { ProcessSection } from "@/components/studio/process-section"
 
 export default function StudioPage() {
   return (
@@ -10,6 +11,7 @@ export default function StudioPage() {
       <main className="relative">
         <StudioHero />
         <ServicesSection />
+        <ProcessSection />
       </main>
       <Footer />
     </div>
