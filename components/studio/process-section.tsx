@@ -28,7 +28,7 @@ export function ProcessSection() {
             <span className="text-xs tracking-widest uppercase text-gray-500">
               The Gap
             </span>
-            <span className="h-px w-12 bg-gray-600"></span>
+            <span className="h-px w-12 bg-gray-600" aria-hidden="true"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 tracking-tight max-w-3xl">
             AI prototypes don't become products.
@@ -48,7 +48,7 @@ export function ProcessSection() {
             <span className="text-xs tracking-widest uppercase text-gray-500">
               Our Approach
             </span>
-            <span className="h-px w-12 bg-gray-600"></span>
+            <span className="h-px w-12 bg-gray-600" aria-hidden="true"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-12 tracking-tight max-w-3xl">
             Research meets engineering. Continuously.
