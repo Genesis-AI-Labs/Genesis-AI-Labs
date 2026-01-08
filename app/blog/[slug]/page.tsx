@@ -2,9 +2,11 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
+import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import { getPostBySlug, getAllPostSlugs } from '@/lib/blog'
-import { BlogLayout, PostHeader, TableOfContents, mdxComponents } from '@/components/blog'
+import { parseFootnotes } from '@/lib/sidenotes'
+import { BlogLayout, PostHeader, TableOfContents, mdxComponents, Sidenotes } from '@/components/blog'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -23,12 +25,15 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound()
   }
 
+  // Parse footnotes from content
+  const { cleanedContent, sidenotes } = parseFootnotes(post.content)
+
   return (
     <BlogLayout>
       <div className="max-w-[1600px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(200px,1fr)_minmax(auto,740px)_minmax(200px,1fr)] gap-8 lg:gap-16 py-16">
           {/* Left Column: TOC */}
-          <TableOfContents content={post.content} />
+          <TableOfContents content={cleanedContent} />
 
           {/* Center Column: Content */}
           <article className="min-w-0">
@@ -37,15 +42,16 @@ export default async function BlogPostPage({ params }: PageProps) {
               subtitle={post.subtitle}
               author={post.author}
               date={post.date}
+              banner={post.banner}
             />
 
             <div className="blog-prose">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight, rehypeSlug]}
+                rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeSlug]}
                 components={mdxComponents}
               >
-                {post.content}
+                {cleanedContent}
               </ReactMarkdown>
             </div>
 
@@ -61,10 +67,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             </footer>
           </article>
 
-          {/* Right Column: Sidenotes placeholder */}
-          <aside className="hidden lg:block">
-            {/* Reserved for sidenotes - can be implemented later */}
-          </aside>
+          {/* Right Column: Sidenotes */}
+          <Sidenotes sidenotes={sidenotes} />
         </div>
       </div>
     </BlogLayout>

@@ -162,6 +162,45 @@
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 2rem auto;
+  margin: 2rem auto 0.75rem auto;
   border-radius: 4px;
+}
+
+/* Figure Captions */
+.blog-prose .figure-caption,
+.blog-prose p:has(> em:only-child):has(em:first-child:contains("Figure")) {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #6B7280;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.figure-caption {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #6B7280;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Sidenote References */
+.sidenote-ref {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  margin-left: 2px;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.sidenote-ref:hover {
+  color: #1d4ed8;
 }

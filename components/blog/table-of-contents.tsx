@@ -56,38 +56,41 @@ export function TableOfContents({ content }: TableOfContentsProps) {
     return () => observer.disconnect()
   }, [headings])
 
-  if (headings.length === 0) return null
-
+  // Always render container to maintain grid structure
   return (
     <aside className="hidden lg:block sticky top-32 pr-8" style={{ fontFamily: 'var(--font-serif)' }}>
-      <h3
-        className="text-xs uppercase tracking-widest text-gray-400 mb-4"
-        style={{ fontFamily: 'var(--font-sans)' }}
-      >
-        Table of Contents
-      </h3>
-      <nav>
-        <ul className="border-l border-gray-200 space-y-3">
-          {headings.map(({ id, text, level }) => (
-            <li key={id}>
-              <a
-                href={`#${id}`}
-                className={`
-                  block text-sm leading-snug no-underline transition-all duration-200
-                  ${level === 3 ? 'pl-6' : 'pl-4'}
-                  border-l-2 -ml-[1px]
-                  ${activeId === id
-                    ? 'text-gray-900 border-gray-900 font-semibold'
-                    : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300'
-                  }
-                `}
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {headings.length > 0 && (
+        <>
+          <h3
+            className="text-xs uppercase tracking-widest text-gray-400 mb-4"
+            style={{ fontFamily: 'var(--font-sans)' }}
+          >
+            Table of Contents
+          </h3>
+          <nav>
+            <ul className="border-l border-gray-200 space-y-3">
+              {headings.map(({ id, text, level }) => (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    className={`
+                      block text-sm leading-snug no-underline transition-all duration-200
+                      ${level === 3 ? 'pl-6' : 'pl-4'}
+                      border-l-2 -ml-[1px]
+                      ${activeId === id
+                        ? 'text-gray-900 border-gray-900 font-semibold'
+                        : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300'
+                      }
+                    `}
+                  >
+                    {text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </>
+      )}
     </aside>
   )
 }

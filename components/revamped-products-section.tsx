@@ -41,7 +41,7 @@ export function RevampedProductsSection() {
   }> = [
     {
       title: "Hypersym",
-      description: "Advanced symbolic AI system for complex reasoning and mathematical problem solving with enhanced interpretability.",
+      description: "Re-imagine industrial simulations at scale. HyperSym Agents turn natural language instructions into validated simulation models — cutting development time by up to 20×.  ",
       image: "/HyperSym_x_banner.png",
       delay: 0,
       link: "https://www.getsimworks.com",
@@ -49,7 +49,7 @@ export function RevampedProductsSection() {
     },
     {
       title: "Functor",
-      description: "Mathematical framework based on category theory for mapping between structures, enabling powerful abstractions in AI and computational systems.",
+      description: "Ambient Intelligence, Proactive Memory. \n Your memory is not a retrieval system, it proactively assists you to think better.",
       image: "/functor_abstract art.png",
       delay: 100,
       link: "https://aifunctor.com",
@@ -64,11 +64,11 @@ export function RevampedProductsSection() {
       layout: "horizontal-right",
     },
     {
-      title: "Zero Morphism",
-      description: "Cutting-edge AI framework leveraging category theory and advanced mathematical structures for robust and interpretable AI systems.",
+      title: "Blog",
+      description: "Insights on AI research, reinforcement learning, geometric deep learning, and building the future of intelligent systems.",
       image: "/ZeroMorphism.png",
       delay: 300,
-      link: "https://www.genesisai.in/zero_morphism/",
+      link: "/blog",
       layout: "image-bottom",
     },
   ];

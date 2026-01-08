@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { formatDate } from '@/lib/blog'
 
 interface PostHeaderProps {
@@ -5,9 +6,10 @@ interface PostHeaderProps {
   subtitle?: string
   author: string
   date: string
+  banner?: string
 }
 
-export function PostHeader({ title, subtitle, author, date }: PostHeaderProps) {
+export function PostHeader({ title, subtitle, author, date, banner }: PostHeaderProps) {
   return (
     <header className="text-center mb-12">
       <h1
@@ -27,13 +29,25 @@ export function PostHeader({ title, subtitle, author, date }: PostHeaderProps) {
       )}
 
       <div
-        className="text-sm text-gray-500"
+        className="text-sm text-gray-500 mb-8"
         style={{ fontFamily: 'var(--font-sans)' }}
       >
         By <span className="text-gray-900 font-medium">{author}</span>
         {' · '}
         {formatDate(date)}
       </div>
+
+      {banner && (
+        <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden">
+          <Image
+            src={banner}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
     </header>
   )
 }

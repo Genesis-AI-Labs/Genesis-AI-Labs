@@ -11,6 +11,7 @@ export interface PostMeta {
   author: string
   date: string
   tags?: string[]
+  banner?: string
 }
 
 export interface Post extends PostMeta {
@@ -38,6 +39,7 @@ export function getAllPosts(): PostMeta[] {
         author: data.author || 'Genesis AI Labs',
         date: data.date || '',
         tags: data.tags || [],
+        banner: data.banner,
       }
     })
 
@@ -66,6 +68,7 @@ export function getPostBySlug(slug: string): Post | null {
     author: data.author || 'Genesis AI Labs',
     date: data.date || '',
     tags: data.tags || [],
+    banner: data.banner,
     content,
   }
 }
