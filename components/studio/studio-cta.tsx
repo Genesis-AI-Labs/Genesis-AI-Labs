@@ -14,22 +14,29 @@ export function StudioCTA() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
   return (
-    <section ref={sectionRef} className="relative py-32 sm:py-48 px-4 sm:px-6 overflow-hidden">
-      {/* Background image with parallax */}
+    <section ref={sectionRef} className="relative py-8 sm:py-12 px-4 sm:px-6 overflow-hidden">
+      {/* Background image with parallax - contained with rounded corners */}
       <motion.div
-        className="absolute inset-0 z-0"
+        className="absolute inset-4 sm:inset-8 z-0 overflow-hidden rounded-2xl sm:rounded-3xl"
         style={{
           backgroundImage: "url('/studio3.png')",
           backgroundSize: "cover",
           backgroundPosition: "center right",
           backgroundRepeat: "no-repeat",
-          opacity: 0.5,
+          opacity: 0.85,
           y: backgroundY,
         }}
         aria-hidden="true"
       >
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#212121] via-[#212121]/70 to-transparent" />
+        {/* Subtle grid overlay */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px)",
+            backgroundSize: "2rem 2rem",
+          }}
+        />
       </motion.div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
