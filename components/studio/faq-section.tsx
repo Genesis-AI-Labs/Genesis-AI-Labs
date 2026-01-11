@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
@@ -34,81 +35,94 @@ const faqs = [
     answer:
       "Yes. Continuous partnership. Most clients stay engaged for iteration and scaling.",
   },
+  {
+    question: "What industries do you work with?",
+    answer:
+      "Healthcare, manufacturing, fintech, and deep tech. We go deep in domains that need it — not surface-level AI wrapping.",
+  },
+  {
+    question: "How quickly can you start?",
+    answer:
+      "Most projects begin within 2 weeks of initial conversation. Discovery phase is typically 1-2 weeks, depending on complexity.",
+  },
+  {
+    question: "Do you work with existing AI systems?",
+    answer:
+      "Yes. Integration, optimization, and rescue of stalled AI projects. We've inherited plenty of 'almost working' systems.",
+  },
 ]
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={sectionRef} className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24">
-          {/* Left column */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="lg:sticky lg:top-32 lg:self-start"
-          >
-            <div className="flex items-center space-x-3 mb-6">
-              <span className="text-xs tracking-widest uppercase text-gray-500">
-                Questions
-              </span>
-              <span className="h-px w-12 bg-gray-600" aria-hidden="true"></span>
-            </div>
-            <p className="text-lg text-gray-400">The basics, answered.</p>
-          </motion.div>
+    <section
+      id="faq"
+      ref={sectionRef}
+      className="py-24 sm:py-32 px-4 sm:px-6 bg-[#212121]"
+    >
+      <div className="max-w-3xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-xs tracking-widest uppercase text-gray-500 mb-4 block">
+            FAQ
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-medium text-white tracking-tight">
+            Common questions
+          </h2>
+        </motion.div>
 
-          {/* Right column - accordion */}
-          <div className="lg:col-span-2">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={faq.question}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
-                className="border-b border-gray-800"
+        {/* FAQ items */}
+        <div className="space-y-3">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={faq.question}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
+              className="bg-[#2a2a2a] rounded-xl overflow-hidden border border-gray-800"
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                className="w-full px-6 py-5 flex items-center justify-between text-left group"
               >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  aria-expanded={openIndex === index}
-                  aria-controls={`faq-answer-${index}`}
-                  className="w-full py-6 flex items-center justify-between text-left group"
-                >
-                  <span className="text-lg text-white font-light group-hover:text-gray-300 transition-colors pr-4">
-                    {faq.question}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className={`text-xl text-gray-500 transition-transform duration-300 flex-shrink-0 ${
-                      openIndex === index ? "rotate-45" : ""
-                    }`}
+                <span className="text-base text-white font-medium group-hover:text-gray-200 transition-colors pr-4">
+                  {faq.question}
+                </span>
+                <ChevronDown
+                  className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform duration-300 ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    id={`faq-answer-${index}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
                   >
-                    +
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      id={`faq-answer-${index}`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-6 text-gray-400 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+                    <p className="px-6 pb-5 text-gray-400 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,112 +1,115 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 const phases = [
-  { name: "Discovery", description: "Deep-dive into your domain. We understand the business problem before touching code." },
-  { name: "Design", description: "System architecture that anticipates scale. No copy-paste templates — custom designs for your constraints." },
-  { name: "Build", description: "Weekly deploys with measurable outcomes. You see progress, not just promises." },
-  { name: "Scale", description: "Continuous partnership through growth. We optimize, monitor, and evolve with your needs." },
+  {
+    number: "01",
+    name: "Discovery",
+    description: "Deep-dive into your domain. We understand the business problem before touching code.",
+  },
+  {
+    number: "02",
+    name: "Design",
+    description: "System architecture that anticipates scale. No copy-paste templates — custom designs for your constraints.",
+  },
+  {
+    number: "03",
+    name: "Build",
+    description: "Weekly deploys with measurable outcomes. You see progress, not just promises.",
+  },
+  {
+    number: "04",
+    name: "Scale",
+    description: "Continuous partnership through growth. We optimize, monitor, and evolve with your needs.",
+  },
 ]
 
 export function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
   return (
-    <section ref={sectionRef} className="relative py-8 sm:py-12 px-4 sm:px-6 overflow-hidden">
-      {/* Background image with parallax - contained with rounded corners */}
-      <motion.div
-        className="absolute inset-4 sm:inset-8 z-0 overflow-hidden rounded-2xl sm:rounded-3xl"
-        style={{
-          backgroundImage: "url('/studio4.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.85,
-          y: backgroundY,
-        }}
-        aria-hidden="true"
-      >
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px)",
-            backgroundSize: "2rem 2rem",
-          }}
-        />
-      </motion.div>
-
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* The Problem */}
+    <section
+      id="process"
+      ref={sectionRef}
+      className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden bg-[#212121]"
+    >
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* The Problem - Brief statement */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="mb-24 sm:mb-32"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
         >
-          <div className="flex items-center space-x-3 mb-6">
-            <span className="text-xs tracking-widest uppercase text-gray-500">
-              The Gap
-            </span>
-            <span className="h-px w-12 bg-gray-600" aria-hidden="true"></span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 tracking-tight max-w-3xl">
+          <span className="text-xs tracking-widest uppercase text-gray-500 mb-4 block">
+            The Gap
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
             AI prototypes don't become products.
           </h2>
-          <p className="text-lg text-gray-400 leading-relaxed max-w-2xl">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Proof-of-concepts sit in notebooks. Demos impress but don't deploy. Internal teams lack the specialized muscle to cross the production threshold.
           </p>
         </motion.div>
 
-        {/* The Solution */}
+        {/* Our Approach */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center mb-16"
         >
-          <div className="flex items-center space-x-3 mb-6">
-            <span className="text-xs tracking-widest uppercase text-gray-500">
-              Our Approach
-            </span>
-            <span className="h-px w-12 bg-gray-600" aria-hidden="true"></span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-12 tracking-tight max-w-3xl">
+          <span className="text-xs tracking-widest uppercase text-indigo-400 mb-4 block">
+            Our Approach
+          </span>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-4 tracking-tight">
             Research meets engineering. Continuously.
-          </h2>
+          </h3>
+        </motion.div>
 
-          {/* Phases */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        {/* Timeline */}
+        <div className="relative">
+          {/* Connecting line - desktop */}
+          <div className="absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent hidden md:block" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
             {phases.map((phase, index) => (
               <motion.div
                 key={phase.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="text-left"
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                className="relative text-center"
               >
-                <h3 className="text-xl sm:text-2xl font-light text-white mb-2">
+                {/* Phase number circle */}
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#2a2a2a] border border-gray-700 flex items-center justify-center relative z-10">
+                  <span className="text-2xl font-light text-white">{phase.number}</span>
+                </div>
+
+                <h4 className="text-xl font-medium text-white mb-3">
                   {phase.name}
-                </h3>
-                <p className="text-sm text-gray-500">
+                </h4>
+                <p className="text-sm text-gray-500 leading-relaxed">
                   {phase.description}
                 </p>
               </motion.div>
             ))}
           </div>
+        </div>
 
-          {/* Partnership note */}
-          <div className="border-t border-gray-800 pt-8">
-            <p className="text-lg text-gray-400 italic">
-              This isn't a handoff. We stay with you.
+        {/* Partnership note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-block px-6 py-4 bg-[#2a2a2a] rounded-xl border border-gray-800">
+            <p className="text-lg text-gray-300 italic">
+              "This isn't a handoff. We stay with you."
             </p>
           </div>
         </motion.div>
