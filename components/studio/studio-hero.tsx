@@ -24,7 +24,7 @@ export function StudioHero() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: 'linear-gradient(135deg, #212121 0%, #1a1a1a 50%, #212121 100%)',
+          background: 'linear-gradient(135deg, #050505 0%, #0a0a0a 50%, #050505 100%)',
         }}
       />
 
@@ -141,7 +141,7 @@ export function StudioHero() {
               />
 
               {/* Gradient overlay for blending */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#212121]/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/50 via-transparent to-transparent" />
             </motion.div>
 
             {/* Floating stat card */}
@@ -149,7 +149,7 @@ export function StudioHero() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="absolute -bottom-6 -left-6 bg-[#2a2a2a] border border-gray-800 rounded-xl p-4 shadow-xl"
+              className="absolute -bottom-6 -left-6 bg-[#151515] border border-gray-800 rounded-xl p-4 shadow-xl"
             >
               <div className="text-2xl font-medium text-white">85%</div>
               <div className="text-sm text-gray-500">AI projects fail</div>

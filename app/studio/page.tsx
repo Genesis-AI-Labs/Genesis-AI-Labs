@@ -14,7 +14,7 @@ import {
 
 export default function StudioPage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#212121' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#050505' }}>
       <StudioHeader />
       <main className="relative">
         <StudioHero />

@@ -45,7 +45,7 @@ export function CaseStudiesSection() {
       ref={sectionRef}
       className="py-24 sm:py-32 px-4 sm:px-6"
       style={{
-        background: 'linear-gradient(180deg, #1a1a1a 0%, #212121 100%)',
+        background: 'linear-gradient(180deg, #0a0a0a 0%, #050505 100%)',
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -75,7 +75,7 @@ export function CaseStudiesSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              className="group bg-[#2a2a2a] rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all"
+              className="group bg-[#151515] rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all"
             >
               {/* Image */}
               <div className="aspect-video relative overflow-hidden">
@@ -101,7 +101,7 @@ export function CaseStudiesSection() {
                 </p>
 
                 {/* Outcome highlight */}
-                <div className="flex items-start gap-3 mb-5 p-4 bg-[#1a1a1a] rounded-xl">
+                <div className="flex items-start gap-3 mb-5 p-4 bg-[#0a0a0a] rounded-xl">
                   <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-300 leading-relaxed">
                     {project.outcome}

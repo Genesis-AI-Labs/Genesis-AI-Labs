@@ -47,7 +47,7 @@ export function ServicesSection() {
       ref={sectionRef}
       className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #1a1a1a 0%, #212121 100%)',
+        background: 'linear-gradient(180deg, #0a0a0a 0%, #050505 100%)',
       }}
     >
       {/* Subtle accent glow */}
@@ -87,7 +87,7 @@ export function ServicesSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                className="group p-6 rounded-xl bg-[#2a2a2a] border border-gray-800 hover:border-gray-700 transition-all hover:shadow-lg hover:shadow-indigo-500/5"
+                className="group p-6 rounded-xl bg-[#151515] border border-gray-800 hover:border-gray-700 transition-all hover:shadow-lg hover:shadow-indigo-500/5"
               >
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-5 group-hover:bg-indigo-500/20 transition-colors">

@@ -34,7 +34,7 @@ export function ProcessSection() {
     <section
       id="process"
       ref={sectionRef}
-      className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden bg-[#212121]"
+      className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden bg-[#050505]"
     >
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* The Problem - Brief statement */}
@@ -85,7 +85,7 @@ export function ProcessSection() {
                 className="relative text-center"
               >
                 {/* Phase number circle */}
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#2a2a2a] border border-gray-700 flex items-center justify-center relative z-10">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#151515] border border-gray-700 flex items-center justify-center relative z-10">
                   <span className="text-2xl font-light text-white">{phase.number}</span>
                 </div>
 
@@ -107,7 +107,7 @@ export function ProcessSection() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-16 text-center"
         >
-          <div className="inline-block px-6 py-4 bg-[#2a2a2a] rounded-xl border border-gray-800">
+          <div className="inline-block px-6 py-4 bg-[#151515] rounded-xl border border-gray-800">
             <p className="text-lg text-gray-300 italic">
               "This isn't a handoff. We stay with you."
             </p>

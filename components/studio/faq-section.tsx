@@ -61,7 +61,7 @@ export function FAQSection() {
     <section
       id="faq"
       ref={sectionRef}
-      className="py-24 sm:py-32 px-4 sm:px-6 bg-[#212121]"
+      className="py-24 sm:py-32 px-4 sm:px-6 bg-[#050505]"
     >
       <div className="max-w-3xl mx-auto">
         {/* Header */}
@@ -87,7 +87,7 @@ export function FAQSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
-              className="bg-[#2a2a2a] rounded-xl overflow-hidden border border-gray-800"
+              className="bg-[#151515] rounded-xl overflow-hidden border border-gray-800"
             >
               <button
                 type="button"

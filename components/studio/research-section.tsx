@@ -22,7 +22,7 @@ export function ResearchSection() {
       ref={sectionRef}
       className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #212121 0%, #1a1a1a 50%, #212121 100%)',
+        background: 'linear-gradient(180deg, #050505 0%, #0a0a0a 50%, #050505 100%)',
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -100,8 +100,8 @@ export function ResearchSection() {
               />
 
               {/* Gradient overlay for blending */}
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#1a1a1a]/80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#0a0a0a]/80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent" />
             </div>
 
             {/* Floating stats */}
@@ -109,7 +109,7 @@ export function ResearchSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute -bottom-4 -right-4 bg-[#2a2a2a] border border-gray-800 rounded-xl p-4 shadow-xl"
+              className="absolute -bottom-4 -right-4 bg-[#151515] border border-gray-800 rounded-xl p-4 shadow-xl"
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center">
