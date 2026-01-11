@@ -1,22 +1,44 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { motion, useInView, useScroll, useTransform } from "framer-motion"
 
 const phases = [
-  { name: "Discovery", description: "Understand the real problem." },
-  { name: "Design", description: "Architecture from first principles." },
-  { name: "Build", description: "Ship weekly. Iterate fast." },
-  { name: "Scale", description: "Stay engaged as you grow." },
+  { name: "Discovery", description: "Deep-dive into your domain. We understand the business problem before touching code." },
+  { name: "Design", description: "System architecture that anticipates scale. No copy-paste templates — custom designs for your constraints." },
+  { name: "Build", description: "Weekly deploys with measurable outcomes. You see progress, not just promises." },
+  { name: "Scale", description: "Continuous partnership through growth. We optimize, monitor, and evolve with your needs." },
 ]
 
 export function ProcessSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
   return (
-    <section ref={sectionRef} className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
+      {/* Background image with parallax */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/studio4.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.35,
+          y: backgroundY,
+        }}
+        aria-hidden="true"
+      >
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#212121] via-transparent to-[#212121]" />
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* The Problem */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

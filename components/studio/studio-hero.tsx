@@ -1,98 +1,35 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
 export function StudioHero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const animationFrameRef = useRef<number>()
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    const updateCanvasSize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    updateCanvasSize()
-    window.addEventListener("resize", updateCanvasSize)
-
-    // Node animation state
-    const nodes: { x: number; y: number; vx: number; vy: number }[] = []
-    const nodeCount = 40
-
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-      })
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Update and draw nodes
-      nodes.forEach((node, i) => {
-        node.x += node.vx
-        node.y += node.vy
-
-        // Bounce off edges
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1
-
-        // Draw node
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, 2, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(255, 255, 255, 0.3)"
-        ctx.fill()
-
-        // Draw connections
-        nodes.forEach((other, j) => {
-          if (i >= j) return
-          const dx = node.x - other.x
-          const dy = node.y - other.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-
-          if (dist < 150) {
-            ctx.beginPath()
-            ctx.moveTo(node.x, node.y)
-            ctx.lineTo(other.x, other.y)
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist / 150)})`
-            ctx.stroke()
-          }
-        })
-      })
-
-      animationFrameRef.current = requestAnimationFrame(animate)
-    }
-
-    animationFrameRef.current = requestAnimationFrame(animate)
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current)
-      }
-      window.removeEventListener("resize", updateCanvasSize)
-    }
-  }, [])
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  })
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
-      {/* Background animation */}
-      <canvas
-        ref={canvasRef}
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
+      {/* Background image with parallax */}
+      <motion.div
         className="absolute inset-0 z-0"
-        style={{ opacity: 0.6 }}
+        style={{
+          backgroundImage: "url('/studio1.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.7,
+          y: backgroundY,
+        }}
         aria-hidden="true"
-        role="presentation"
-      />
+      >
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#212121] via-[#212121]/60 to-transparent" />
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -111,7 +48,7 @@ export function StudioHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          Most AI projects stall between research and production. We bridge that gap — turning ambitious ideas into working systems.
+          85% of AI projects fail to reach production. We're the engineering partner that bridges research to deployment — with battle-tested architectures and continuous iteration.
         </motion.p>
 
         <motion.div

@@ -1,41 +1,64 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useRef } from "react"
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 
 const services = [
   {
     title: "Full-Stack AI Products",
-    description: "Complete applications from prototype to production.",
+    description: "End-to-end AI applications — from architecture through deployment. We own the entire stack: model selection, fine-tuning, infrastructure, and monitoring.",
   },
   {
     title: "LLM & RAG Pipelines",
-    description: "Custom language models and retrieval-augmented generation.",
+    description: "Production RAG systems that actually retrieve relevant context. Custom embeddings, hybrid search, and evaluation frameworks that maintain accuracy at scale.",
   },
   {
     title: "Voice & Conversational Agents",
-    description: "Natural language interfaces for support and automation.",
+    description: "Intelligent voice agents that handle real conversations. Latency-optimized, context-aware, with fallback handling and human handoff protocols.",
   },
   {
     title: "Multi-Agent Systems",
-    description: "Autonomous agents that coordinate to solve complex workflows.",
+    description: "Orchestrated agent architectures that reason, plan, and execute. Tool-use, memory systems, and coordination protocols for complex autonomous workflows.",
   },
   {
     title: "Model Fine-Tuning",
-    description: "Domain-specific optimization for your data and requirements.",
+    description: "Systematic model adaptation for your domain. Data curation, training infrastructure, evaluation pipelines, and A/B testing frameworks.",
   },
   {
     title: "MLOps & Infrastructure",
-    description: "Deployment, monitoring, and scaling that runs reliably.",
+    description: "The infrastructure that keeps AI running. GPU orchestration, model serving, observability, and cost optimization that scales with your growth.",
   },
 ]
 
 export function ServicesSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
+      {/* Background image with parallax */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/studio2.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.4,
+          y: backgroundY,
+        }}
+        aria-hidden="true"
+      >
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#212121] via-transparent to-[#212121]" />
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           {/* Left column - sticky */}
           <div className="lg:sticky lg:top-32 lg:self-start">
