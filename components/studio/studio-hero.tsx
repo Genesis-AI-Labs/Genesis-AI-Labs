@@ -32,7 +32,7 @@ export function StudioHero() {
       <div
         className="absolute top-0 right-0 w-1/2 h-1/2 z-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at top right, rgba(99, 102, 241, 0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse at top right, rgba(251, 191, 36, 0.08) 0%, transparent 60%)',
         }}
       />
 
@@ -55,7 +55,7 @@ export function StudioHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-1.5 text-xs tracking-widest uppercase text-indigo-400 border border-indigo-400/30 rounded-full mb-6"
+            className="inline-block px-4 py-1.5 text-xs tracking-widest uppercase text-amber-400 border border-amber-400/30 rounded-full mb-6"
           >
             AI Engineering Studio
           </motion.span>
@@ -153,7 +153,7 @@ export function StudioHero() {
             >
               <div className="text-2xl font-medium text-white">85%</div>
               <div className="text-sm text-gray-500">AI projects fail</div>
-              <div className="text-xs text-indigo-400 mt-1">We fix that.</div>
+              <div className="text-xs text-amber-400 mt-1">We fix that.</div>
             </motion.div>
           </div>
         </motion.div>

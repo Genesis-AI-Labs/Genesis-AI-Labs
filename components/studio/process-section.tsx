@@ -62,7 +62,7 @@ export function ProcessSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <span className="text-xs tracking-widest uppercase text-indigo-400 mb-4 block">
+          <span className="text-xs tracking-widest uppercase text-amber-400 mb-4 block">
             Our Approach
           </span>
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-4 tracking-tight">

@@ -54,7 +54,7 @@ export function ServicesSection() {
       <div
         className="absolute top-0 left-1/4 w-96 h-96 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.05) 0%, transparent 70%)',
         }}
       />
 
@@ -66,7 +66,7 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <span className="text-xs tracking-widest uppercase text-indigo-400 mb-4 block">
+          <span className="text-xs tracking-widest uppercase text-amber-400 mb-4 block">
             What We Build
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
@@ -87,11 +87,11 @@ export function ServicesSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                className="group p-6 rounded-xl bg-[#151515] border border-gray-800 hover:border-gray-700 transition-all hover:shadow-lg hover:shadow-indigo-500/5"
+                className="group p-6 rounded-xl bg-[#151515] border border-gray-800 hover:border-gray-700 transition-all hover:shadow-lg hover:shadow-amber-500/5"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-5 group-hover:bg-indigo-500/20 transition-colors">
-                  <Icon className="w-6 h-6 text-indigo-400" />
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5 group-hover:bg-amber-500/20 transition-colors">
+                  <Icon className="w-6 h-6 text-amber-400" />
                 </div>
 
                 <h3 className="text-lg font-medium text-white mb-3">

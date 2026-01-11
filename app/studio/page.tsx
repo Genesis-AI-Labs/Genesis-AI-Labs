@@ -8,6 +8,7 @@ import {
   ProcessSection,
   ResearchSection,
   CaseStudiesSection,
+  TestimonialsSection,
   FAQSection,
   StudioCTA,
 } from "@/components/studio"
@@ -22,6 +23,7 @@ export default function StudioPage() {
         <ProcessSection />
         <ResearchSection />
         <CaseStudiesSection />
+        <TestimonialsSection />
         <FAQSection />
         <StudioCTA />
       </main>

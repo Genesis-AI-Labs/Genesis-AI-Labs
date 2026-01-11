@@ -122,7 +122,7 @@ export function StudioCTA() {
             transition={{ duration: 0.8 }}
           >
             {/* Badge */}
-            <span className="inline-block px-4 py-1.5 text-xs tracking-widest uppercase text-indigo-400 border border-indigo-400/30 rounded-full mb-6">
+            <span className="inline-block px-4 py-1.5 text-xs tracking-widest uppercase text-amber-400 border border-amber-400/30 rounded-full mb-6">
               Let's Build Together
             </span>
 
@@ -155,7 +155,7 @@ export function StudioCTA() {
                 href="mailto:studio@genesisai.in"
                 className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
               >
-                <Mail className="w-4 h-4 text-gray-500 group-hover:text-indigo-400 transition-colors" />
+                <Mail className="w-4 h-4 text-gray-500 group-hover:text-amber-400 transition-colors" />
                 studio@genesisai.in
               </a>
               <span className="hidden sm:block text-gray-700">|</span>
@@ -165,7 +165,7 @@ export function StudioCTA() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
               >
-                <Calendar className="w-4 h-4 text-gray-500 group-hover:text-indigo-400 transition-colors" />
+                <Calendar className="w-4 h-4 text-gray-500 group-hover:text-amber-400 transition-colors" />
                 Book a call
               </a>
             </div>

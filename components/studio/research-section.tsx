@@ -33,7 +33,7 @@ export function ResearchSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs tracking-widest uppercase text-indigo-400 mb-4 block">
+            <span className="text-xs tracking-widest uppercase text-amber-400 mb-4 block">
               Research-Backed
             </span>
 
@@ -46,7 +46,7 @@ export function ResearchSection() {
               {researchAreas.map((area) => (
                 <span
                   key={area}
-                  className="px-4 py-2 text-sm bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20"
+                  className="px-4 py-2 text-sm bg-amber-500/10 text-amber-300 rounded-full border border-amber-500/20"
                 >
                   {area}
                 </span>
@@ -60,13 +60,13 @@ export function ResearchSection() {
             </div>
 
             {/* Quote highlight */}
-            <div className="border-l-2 border-indigo-500 pl-5 py-2">
+            <div className="border-l-2 border-amber-500 pl-5 py-2">
               <p className="text-xl text-white">
                 You're not hiring implementers.
               </p>
               <Link
                 href="/#research"
-                className="text-xl text-indigo-400 hover:text-indigo-300 transition-colors inline-flex items-center gap-2"
+                className="text-xl text-amber-400 hover:text-amber-300 transition-colors inline-flex items-center gap-2"
               >
                 You're hiring the source.
                 <Sparkles className="w-5 h-5" />
@@ -112,8 +112,8 @@ export function ResearchSection() {
               className="absolute -bottom-4 -right-4 bg-[#151515] border border-gray-800 rounded-xl p-4 shadow-xl"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-indigo-400" />
+                <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-amber-400" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">Research-first</div>

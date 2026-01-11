@@ -56,7 +56,7 @@ export function CaseStudiesSection() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <span className="text-xs tracking-widest uppercase text-indigo-400 mb-4 block">
+          <span className="text-xs tracking-widest uppercase text-amber-400 mb-4 block">
             Work
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
@@ -126,7 +126,7 @@ export function CaseStudiesSection() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors inline-flex items-center gap-1.5 group/link"
+                    className="text-sm text-amber-400 hover:text-amber-300 transition-colors inline-flex items-center gap-1.5 group/link"
                   >
                     View Project
                     <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

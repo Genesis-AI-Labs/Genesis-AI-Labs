@@ -36,8 +36,8 @@ export function StudioHeader() {
           {/* Logo with Studio branding */}
           <Link href="/studio" className="flex items-center space-x-3 group">
             <div className="flex space-x-2">
-              <div className="h-2 w-2 rounded-full bg-white group-hover:bg-indigo-400 transition-colors"></div>
-              <div className="h-2 w-2 rounded-full bg-white group-hover:bg-indigo-400 transition-colors"></div>
+              <div className="h-2 w-2 rounded-full bg-white group-hover:bg-amber-400 transition-colors"></div>
+              <div className="h-2 w-2 rounded-full bg-white group-hover:bg-amber-400 transition-colors"></div>
             </div>
             <span className="text-sm font-medium text-white hidden sm:block">
               Genesis Studio
