@@ -3,11 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect, useRef } from "react"
-import { InteractiveShowcase } from "@/components/interactive-showcase"
 import { HeroBackground } from "@/components/hero-background"
-import { ProductBackground } from "@/components/product-background"
-import { RevampedProductsSection } from "@/components/revamped-products-section"
-import { Footer } from "@/components/footer"
 
 
 export default function HomePage() {
@@ -193,8 +189,8 @@ export default function HomePage() {
         </div>
         <div className="flex items-center space-x-3 sm:space-x-6">
           <button className="text-xs sm:text-sm text-white hidden sm:block">EN</button>
-          <Link href="/contact" className="text-xs sm:text-sm text-white hover:underline hidden sm:block">
-            CONTACT US
+          <Link href="/blog" className="text-xs sm:text-sm text-white hover:underline hidden sm:block">
+            BLOG
           </Link>
           <button className="flex flex-col space-y-1 z-50 relative" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <span
@@ -231,38 +227,8 @@ export default function HomePage() {
               >
                 HOME
               </button>
-              <Link href="/about" className="block text-lg font-light hover:text-gray-600 transition-colors">
-                WHAT IS GENESIS AI LABS
-              </Link>
-              <button
-                onClick={() => scrollToSection("research")}
-                className="block text-lg font-light hover:text-gray-600 transition-colors text-left w-full"
-              >
-                RESEARCH PODS
-              </button>
-              <button
-                onClick={() => scrollToSection("products")}
-                className="block text-lg font-light hover:text-gray-600 transition-colors text-left w-full"
-              >
-                PRODUCTS
-              </button>
-              <button
-                onClick={() => scrollToSection("news")}
-                className="block text-lg font-light hover:text-gray-600 transition-colors text-left w-full"
-              >
-                NEWS & INSIGHTS
-              </button>
-              <Link href="/careers" className="block text-lg font-light hover:text-gray-600 transition-colors">
-                CAREERS
-              </Link>
               <Link href="/blog" className="block text-lg font-light hover:text-gray-600 transition-colors">
                 BLOG
-              </Link>
-              <Link href="/studio" className="block text-lg font-light hover:text-gray-600 transition-colors">
-                STUDIO
-              </Link>
-              <Link href="/contact" className="block text-lg font-light hover:text-gray-600 transition-colors">
-                CONTACT
               </Link>
             </nav>
           </div>
@@ -353,152 +319,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        
-        {/* <div className="mt-32 max-w-7xl mx-auto px-8">
-          <div className="flex items-center space-x-2 mb-8 group">
-            <span className="text-sm group-hover:tracking-wider transition-all duration-300">WHO WE ARE</span>
-            <span className="h-px w-12 bg-black group-hover:w-16 transition-all duration-300"></span>
-          </div>
-          <p className="max-w-2xl text-sm leading-relaxed text-gray-600">
-            We are establishing a world-class AI research lab in Bangalore. Our mission is to create cutting-edge AI
-            solutions tailored to India's unique needs while making AI accessible to all. We focus on developing AI
-            solutions for India's needs and democratizing AI across the nation.
-          </p>
-        </div> */}
-
-        <section className="mt-16 sm:mt-24 md:mt-32" id="research">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16">
-            {/* Left Side: Header, Subheader, Strategic Summary, and Image */}
-            <div className="lg:w-1/2 space-y-6 sm:space-y-8">
-              <div className="flex items-center space-x-2 mb-6 sm:mb-8 group">
-                <span className="text-xs sm:text-sm text-white group-hover:tracking-wider transition-all duration-300">RESEARCH PODS</span>
-                <span className="h-px w-8 sm:w-12 bg-white group-hover:w-12 sm:group-hover:w-16 transition-all duration-300"></span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6 sm:mb-8 text-white">CURRENT RESEARCH ORIENTATIONS</h2>
-              
-              {/* Image with Text Overlay */}
-              <div className="relative ml-6 sm:ml-10">
-                <img 
-                  src="/research_pods_image.png" 
-                  alt="Research Pods" 
-                  className="w-full max-w-lg max-h-[40rem] object-contain"
-                />
-                <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-b from-black/80 via-black/60 to-transparent">
-                  <p className="text-xs sm:text-sm leading-relaxed text-white">
-                    Our research has transitioned from general capability acquisition to capability control. We no longer focus on 'training bigger models,' but on the sophisticated integration of inference-time compute, non-Transformer backbones, and embodied physical manifestation.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Cards Stacked Vertically */}
-            <div className="lg:w-1/2 space-y-6 sm:space-y-8">
-              {/* System 2 Reasoning Pod */}
-              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
-                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
-                  SYSTEM 2 REASONING
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
-                  Focus: Shifting from rapid pattern matching (System 1) to deliberate, verifiable, and iterative reasoning processes (System 2).
-                </p>
-              </div>
-
-              {/* Next-Gen Architectures Pod */}
-              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
-                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
-                  NEXT-GEN ARCHITECTURES
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
-                  Focus: Moving beyond the "Transformer Monoculture" toward linear-time inference and extreme hardware efficiency.
-                </p>
-              </div>
-
-              {/* Embodied Intelligence (VLA) Pod */}
-              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
-                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
-                  EMBODIED INTELLIGENCE (VLA)
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
-                  Focus: Bridging the "Sim-to-Real" gap by developing Vision-Language-Action models for general-purpose robotics.
-                </p>
-              </div>
-
-              {/* Agentic Safety & Privacy Pod */}
-              <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-lg hover:bg-white transition-all duration-300 group border border-transparent hover:border-white/20 bg-white/5 backdrop-blur-sm">
-                <h3 className="text-base sm:text-lg font-light text-white group-hover:text-black transition-colors">
-                  AGENTIC SAFETY & PRIVACY
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-800 transition-colors italic">
-                  Focus: Addressing the "Agentic Shift" by securing autonomous systems against sabotage and preserving data privacy in decentralized networks.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div className="mt-4 sm:mt-6 md:mt-10"></div>
-
-        {/* Products Section - Revamped with Cards */}
-        <RevampedProductsSection />
-
-
-        <section className="mt-16 sm:mt-24 md:mt-32">
-          <div className="flex items-center space-x-2 mb-6 sm:mb-8">
-            <span className="text-xs sm:text-sm text-white">OUR VISION</span>
-            <span className="h-px w-8 sm:w-12 bg-white"></span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-light mb-6 sm:mb-8 text-white">BUILDING THE FUTURE OF AI</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
-            <div>
-              <h3 className="text-base sm:text-lg font-light mb-3 sm:mb-4 text-white">RESEARCHER-CENTRIC APPROACH</h3>
-              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                We value the contributions of our researchers, providing authorship recognition, travel grants, and
-                publication support for candidates from diverse backgrounds. Our strong alumni community focuses on
-                building lasting professional and personal bonds.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-base sm:text-lg font-light mb-3 sm:mb-4 text-white">COLLABORATIVE ENVIRONMENT</h3>
-              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                We foster a collaborative research environment with computational resources, discussion pods, and
-                knowledge-sharing platforms. Our approach combines creative thinking, coding, and experimentation with
-                proper guidance and direction.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-16 sm:mt-24 md:mt-32 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent h-px"></div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 py-12 sm:py-16">
-            <div className="text-center group">
-              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
-                15+
-              </div>
-              <div className="text-xs sm:text-sm text-gray-400">Research Papers</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">4</div>
-              <div className="text-xs sm:text-sm text-gray-400">Research Pods</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
-                50+
-              </div>
-              <div className="text-xs sm:text-sm text-gray-400">Researchers</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-2xl sm:text-3xl font-light mb-2 text-white group-hover:scale-110 transition-transform duration-300">
-                2022
-              </div>
-              <div className="text-xs sm:text-sm text-gray-400">Established</div>
-            </div>
-          </div>
-        </section>
-
       </main>
-      <Footer />
     </div>
   )
 }

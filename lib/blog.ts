@@ -12,6 +12,7 @@ export interface PostMeta {
   date: string
   tags?: string[]
   banner?: string
+  hidden?: boolean
 }
 
 export interface Post extends PostMeta {
@@ -40,8 +41,10 @@ export function getAllPosts(): PostMeta[] {
         date: data.date || '',
         tags: data.tags || [],
         banner: data.banner,
+        hidden: data.hidden === true,
       }
     })
+    .filter((post) => !post.hidden)
 
   // Sort by date descending
   return posts.sort((a, b) => {
@@ -61,6 +64,10 @@ export function getPostBySlug(slug: string): Post | null {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  if (data.hidden === true) {
+    return null
+  }
+
   return {
     slug,
     title: data.title || slug,
@@ -78,9 +85,7 @@ export function getAllPostSlugs(): string[] {
     return []
   }
 
-  return fs.readdirSync(postsDirectory)
-    .filter((name) => name.endsWith('.mdx'))
-    .map((name) => name.replace(/\.mdx$/, ''))
+  return getAllPosts().map((post) => post.slug)
 }
 
 export function formatDate(dateString: string): string {

@@ -6,7 +6,7 @@ import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import { getPostBySlug, getAllPostSlugs } from '@/lib/blog'
 import { parseFootnotes } from '@/lib/sidenotes'
-import { BlogLayout, PostHeader, TableOfContents, mdxComponents, Sidenotes } from '@/components/blog'
+import { BlogLayout, PostHeader, TableOfContents, mdxComponents, Sidenotes, Comments } from '@/components/blog'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -54,6 +54,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {cleanedContent}
               </ReactMarkdown>
             </div>
+
+            <Comments slug={post.slug} />
 
             {/* Post Footer */}
             <footer className="mt-16 pt-8 border-t border-gray-200">
